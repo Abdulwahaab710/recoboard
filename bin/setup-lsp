@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+if ! gem list solargraph -i --silent; then
+  echo "Installing solargraph..."
+  gem install solargraph
+fi
+
+if ! gem list solargraph-rails -i --silent; then
+  echo "Installing solargraph-rails..."
+  gem install solargraph-rails
+fi
+
+echo "Downloading core docs..."
+solargraph download-core
+
+echo "Building YARD docs..."
+yard gems
