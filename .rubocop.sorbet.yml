@@ -1,0 +1,10 @@
+Sorbet/TrueSigil:
+  Enabled: true
+  Exclude:
+    - test/**/*.rb
+    - config/**/*
+    - bin/**/*
+    - config.ru
+    - sorbet/tapioca/require.rb
+    - lib/tasks/auto_annotate_models.rake
+    - lib/tasks/graphql.rake

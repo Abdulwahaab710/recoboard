@@ -59,6 +59,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-shopify", require: false
   gem "rubocop-sorbet", require: false
+  gem "tapioca", require: false
 end
 
 group :development do
