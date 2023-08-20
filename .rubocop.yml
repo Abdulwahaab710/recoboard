@@ -1,0 +1,14 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - bin/**
+Lint/MissingSuper:
+  Enabled: true
+  Exclude:
+    - app/views/ui_components/*.rb
+inherit_gem:
+  rubocop-shopify: rubocop.yml
+inherit_from: .rubocop.sorbet.yml
+require:
+  - rubocop-sorbet
+  - rubocop-rails
