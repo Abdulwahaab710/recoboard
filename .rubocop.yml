@@ -6,6 +6,8 @@ Lint/MissingSuper:
   Enabled: true
   Exclude:
     - app/views/ui_components/*.rb
+Rails/I18nLocaleTexts:
+  Enabled: false
 inherit_gem:
   rubocop-shopify: rubocop.yml
 inherit_from: .rubocop.sorbet.yml
