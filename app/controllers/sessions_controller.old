@@ -1,0 +1,28 @@
+# typed: true
+# frozen_string_literal: true
+
+class SessionsController < ApplicationController
+  sig { void }
+  def new
+  end
+
+  sig { void }
+  def create
+    # TODO: when upgrading to rails 7.1 switch to using `User.authenticate_by`
+    user = User.find_by(username: user_params[:username])&.authenticate(user_params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect_to("/", notice: "Logged in!")
+    else
+      flash.now.alert = "Username or password is invalid."
+      render("new")
+    end
+  end
+
+  private
+
+  sig { returns(T::Hash[Symbol, String]) }
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
+end

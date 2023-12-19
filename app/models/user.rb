@@ -1,4 +1,4 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
 # == Schema Information
@@ -15,4 +15,6 @@
 #
 class User < ApplicationRecord
   has_secure_password
+
+  has_many :sessions, dependent: :destroy
 end
