@@ -22,6 +22,7 @@ class Rails::Conductor::ActionMailbox::ReroutesController
     include ::Importmap::ImportmapTagsHelper
     include ::ActionController::Base::HelperMethods
     include ::ApplicationHelper
+    include ::SessionsHelper
   end
 
   class HelperProxy < ::ActionView::Base

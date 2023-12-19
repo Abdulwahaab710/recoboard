@@ -185,10 +185,11 @@ class ActiveStorage::Blob
         load: T.untyped,
         error_on_ignore: T.untyped,
         order: Symbol,
+        use_ranges: T.untyped,
         block: T.nilable(T.proc.params(object: PrivateRelation).void)
       ).returns(T.nilable(::ActiveRecord::Batches::BatchEnumerator))
     end
-    def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, order: :asc, &block); end
+    def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, order: :asc, use_ranges: nil, &block); end
 
     sig { params(record: T.untyped).returns(T::Boolean) }
     def include?(record); end
@@ -456,6 +457,9 @@ class ActiveStorage::Blob
     def none(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def null_relation?(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def offset(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
@@ -478,6 +482,9 @@ class ActiveStorage::Blob
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def references(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def regroup(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def reorder(*args, &blk); end
@@ -529,6 +536,9 @@ class ActiveStorage::Blob
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelationWhereChain) }
     def where(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def with(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def with_attached_preview_image(*args, &blk); end
@@ -608,6 +618,9 @@ class ActiveStorage::Blob
     def none(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def null_relation?(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def offset(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
@@ -630,6 +643,9 @@ class ActiveStorage::Blob
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def references(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def regroup(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def reorder(*args, &blk); end
@@ -663,6 +679,9 @@ class ActiveStorage::Blob
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelationWhereChain) }
     def where(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def with(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def with_attached_preview_image(*args, &blk); end
