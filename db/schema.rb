@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_004744) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_21_143537) do
   create_table "sessions", force: :cascade do |t|
     t.datetime "last_active_at"
     t.string "uuid"
@@ -19,6 +19,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_004744) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
     t.index ["uuid"], name: "index_sessions_on_uuid", unique: true
+  end
+
+  create_table "targets", force: :cascade do |t|
+    t.string "name"
+    t.string "program_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_targets_on_name", unique: true
+    t.index ["program_url"], name: "index_targets_on_program_url", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :targets
   root "dashboard#index"
 
   get "/login", to: "sessions#new", as: :login
