@@ -65,3 +65,4 @@ group :test do
 end
 
 gem "view_component", "~> 3.8"
+gem "solid_queue"
