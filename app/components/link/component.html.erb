@@ -1,0 +1,5 @@
+<% if link? %>
+  <%= link_to content, @to, class: styles, data: @data, target: @external ? "_blank" : "" %>
+<% else %>
+  <%= button_to content, @to, class: styles, data: @data, method: @method %>
+<% end %>

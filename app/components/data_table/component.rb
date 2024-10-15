@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Table
+module DataTable
   class Component < ApplicationComponent
     attr_reader :columns
     def initialize(data:, sortable: false)

@@ -1,0 +1,15 @@
+<div class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+  <% if header %>
+    <div class="p-6">
+      <%= header %>
+    </div>
+  <% end %>
+  <div class="p-6">
+    <%= content %>
+  </div>
+  <% if footer %>
+    <div class="p-6 pt-0">
+      <%= footer %>
+    </div>
+  <% end %>
+</div>

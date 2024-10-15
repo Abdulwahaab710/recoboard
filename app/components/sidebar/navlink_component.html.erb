@@ -1,0 +1,9 @@
+<a href="<%= @path %>" class="flex w-full justify-between <%= color %> cursor-pointer items-center mb-6">
+  <li class="flex items-center focus:outline-none focus:ring-2 focus:ring-white max-w-max">
+    <%= content %>
+    <span class="text-sm ml-2"><%= @title %></span>
+    <% if @unread_count > 0 %>
+      <div class="py-1 px-3 bg-gray-600 rounded text-gray-300 flex items-center justify-center text-xs"><%= @unread_count %></div>
+    <% end %>
+  </li>
+</a>
