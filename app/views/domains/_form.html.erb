@@ -1,0 +1,23 @@
+<%= form_with(url: url, class: "contents") do |form| %>
+  <% if domain.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(domain.errors.count, "error") %> prohibited this domain from being saved:</h2>
+
+      <ul>
+        <% domain.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render(FormControl::Component.new) do %>
+    <%= render Input::Component.new(type: :text, id: :domain, name: "domain[name]", required: true, label: "Name", value: domain.name) %>
+  <% end %>
+
+  <div class="justify-end flex">
+    <%= render Button::Component.new(type: :submit, style: :primary) do %>
+      Submit
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,7 @@
+<%= render(Dialog::Component.new) do %>
+  <%= render(Typography::Component.new(as: :h1, variant: "4xl")) do %>
+    Editing domain
+  <% end %>
+
+  <%= render "form", domain: @domain, url: edit_domain_path %>
+<% end %>

@@ -1,0 +1,29 @@
+<div id="<%= dom_id @domain %>" class="flex justify-between">
+  <div class="flex self-center">
+    <%= back_link target_path(@domain.target) %>
+    <%= render(Typography::Component.new(as: :h1, variant: "4xl")) do %>
+      <%= @domain.name %>
+    <% end %>
+  </div>
+
+
+  <div class="flex space-x-1">
+    <%= render(DialogButton::Component.new(path: new_subdomain_path(@domain), style: :primary)) { "New subdomain" } %>
+    <%= render(DialogButton::Component.new(path: edit_domain_path(@domain), style: :secondary)) { "Edit" } %>
+    <%= render(Link::Component.new(to: domain_path(@domain), style: :danger, method: :delete, as: :button)) { "Delete" } %>
+  </div>
+</div>
+
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+<% if @domain.subdomains.any? %>
+  <%= render DataTable::Component.new(data: @domain.subdomains) do |table| %>
+    <%= table.column("Name", sortable: true) { |d| link_to(d.name, d) } %>
+  <% end %>
+<% else %>
+  <div class="flex justify-center w-full">
+    <%= render(Typography::Component.new(as: :h1, variant: "4xl")) do %>
+      No subdomains found
+    <% end %>
+  </div>
+<% end %>
