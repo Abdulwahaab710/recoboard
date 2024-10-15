@@ -1,0 +1,7 @@
+<%= render(Dialog::Component.new) do %>
+  <%= render(Typography::Component.new(as: :h1, variant: "4xl")) do %>
+    New subdomain
+  <% end %>
+
+  <%= render "form", subdomain: @subdomain, url: new_subdomain_path %>
+<% end %>

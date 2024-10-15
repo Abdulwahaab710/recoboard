@@ -1,0 +1,29 @@
+<div id="<%= dom_id @subdomain %>" class="flex justify-between">
+  <div class="flex self-center">
+    <%= back_link target_path(@subdomain.domain) %>
+    <%= render(Typography::Component.new(as: :h1, variant: "4xl")) do %>
+      <%= @subdomain.name %>
+    <% end %>
+  </div>
+
+
+  <div class="flex space-x-1">
+    <%= render(DialogButton::Component.new(path: new_port_path(@subdomain), style: :primary)) { "New port" } %>
+    <%= render(DialogButton::Component.new(path: edit_subdomain_path(@subdomain), style: :secondary)) { "Edit" } %>
+    <%= render(Link::Component.new(to: domain_path(@subdomain), style: :danger, method: :delete, as: :button)) { "Delete" } %>
+  </div>
+</div>
+
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+<% if @subdomain.ports.any? %>
+  <%= render DataTable::Component.new(data: @subdomain.ports) do |table| %>
+    <%= table.column("Name", sortable: true) { |d| link_to(d.name, d) } %>
+  <% end %>
+<% else %>
+  <div class="flex justify-center w-full">
+    <%= render(Typography::Component.new(as: :h1, variant: "4xl")) do %>
+      No ports found
+    <% end %>
+  </div>
+<% end %>
