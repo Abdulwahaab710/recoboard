@@ -9,7 +9,25 @@ module GeneratedPathHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def bulk_imports_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def domain_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def domains_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_domain_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_subdomain_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def edit_target_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_webhook_subscription_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def login_path(*args); end
@@ -18,13 +36,31 @@ module GeneratedPathHelpersModule
   def logout_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def lookbook_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_domain_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def new_rails_conductor_inbound_email_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_rails_conductor_inbound_email_source_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def new_subdomain_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def new_target_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_webhook_subscription_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def preview_view_component_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def preview_view_components_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def rails_blob_path(*args); end
@@ -108,6 +144,12 @@ module GeneratedPathHelpersModule
   def sessions_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def subdomain_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def subdomains_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def target_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
@@ -124,4 +166,10 @@ module GeneratedPathHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def update_rails_disk_service_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def webhook_subscription_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def webhook_subscriptions_path(*args); end
 end
