@@ -1,0 +1,37 @@
+<div id="<%= dom_id port %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Number:</strong>
+    <%= port.number %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Service version:</strong>
+    <%= port.service_version %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Subdomain:</strong>
+    <%= port.subdomain_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Service:</strong>
+    <%= port.service_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ssl:</strong>
+    <%= port.ssl %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Open:</strong>
+    <%= port.open %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this port", port, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this port", edit_port_path(port), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

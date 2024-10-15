@@ -1,0 +1,51 @@
+<%= form_with(model: port, class: "contents") do |form| %>
+  <% if port.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(port.errors.count, "error") %> prohibited this port from being saved:</h2>
+
+      <ul>
+        <% port.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render(FormControl::Component.new) do %>
+    <%= render Input::Component.new(type: :number, id: :port_number, name: "port[number]", required: true, label: "Number", value: port.number) %>
+  <% end %>
+
+  <%= render(FormControl::Component.new) do %>
+    <%= render Input::Component.new(type: :text, id: :service_version, name: "port[service_version]", required: true, label: "Service Version", value: port.service_version) %>
+  <% end %>
+
+
+  <%= render(FormControl::Component.new) do %>
+    <%= render Input::Component.new(type: :text, id: :service_id, name: "port[service_id]", required: true, label: "Service ID", value: port.service_id) %>
+  <% end %>
+
+  <%= render(FormControl::Component.new) do %>
+    <%= render Input::Component.new(type: :check_box, id: :ssl, name: "port[ssl]", required: true, label: "SSL", value: port.ssl) %>
+  <% end %>
+
+
+  <%= render(FormControl::Component.new) do %>
+    <%= render Input::Component.new(type: :check_box, id: :open_port, name: "port[open]", required: true, label: "Open port", value: port.open) %>
+  <% end %>
+
+  <%= render(FormControl::Component.new) do %>
+    <%= form.check_box :ssl, class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" %>
+    <%= form.label :ssl, "SSL", class: "ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+  <% end %>
+
+  <%= render(FormControl::Component.new) do %>
+    <%= form.check_box :open, class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" %>
+    <%= form.label :open, class: "ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+  <% end %>
+
+  <div class="justify-end flex">
+    <%= render Button::Component.new(type: :submit, style: :primary) do %>
+      Submit
+    <% end %>
+  </div>
+<% end %>
